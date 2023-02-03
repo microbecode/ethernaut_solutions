@@ -1,6 +1,10 @@
 # Compiler files
 cache/
 out/
+artifacts/
+typechain-types/
+node_modules/
+lib/
 
 # Ignores development broadcast logs
 !/broadcast
