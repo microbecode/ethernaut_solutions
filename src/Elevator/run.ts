@@ -1,13 +1,12 @@
 import { ethers, network } from "hardhat";
-import { CoinFlipSolution } from "../../typechain-types";
+import { Elevator } from "../../typechain-types";
 
 // Used for deploying to FireBlocks
 async function main() {
-  const ImplementationFact = await ethers.getContractFactory(
-    "CoinFlipSolution"
-  );
-  const contract = await ImplementationFact.deploy();
-  const instance = (await contract.deployed()) as CoinFlipSolution;
+  const ImplementationFact = await ethers.getContractFactory("Elevator");
+  const contract = await ImplementationFact.deploy({ gasLimit: 1000000 });
+  const instance = (await contract.deployed()) as Elevator;
+  await instance.tryit();
 }
 
 // We recommend this pattern to be able to use async/await everywhere
