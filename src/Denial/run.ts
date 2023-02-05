@@ -1,13 +1,14 @@
 import { ethers, network } from "hardhat";
-import { CoinFlipSolution } from "../../typechain-types";
+import { Denial } from "../../typechain-types";
 
 // Used for deploying to FireBlocks
 async function main() {
-  const ImplementationFact = await ethers.getContractFactory(
-    "CoinFlipSolution"
-  );
-  const contract = await ImplementationFact.deploy();
-  const instance = (await contract.deployed()) as CoinFlipSolution;
+  const ImplementationFact = await ethers.getContractFactory("Denial");
+  const contract = await ImplementationFact.deploy({
+    gasLimit: 1000000,
+    value: 100,
+  });
+  const instance = (await contract.deployed()) as Denial;
 
   console.log("Deployed", instance.address);
 }

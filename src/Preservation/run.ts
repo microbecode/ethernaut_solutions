@@ -8,8 +8,6 @@ async function main() {
   );
   const contract = await ImplementationFact.deploy();
   const instance = (await contract.deployed()) as CoinFlipSolution;
-
-  console.log("Deployed", instance.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
